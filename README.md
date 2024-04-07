@@ -34,5 +34,7 @@ kubectl apply -f hpa.yaml
 
  ## Perform stress testing using Hey or similar tool ##
 
+ https://github.com/rakyll/hey
+
  hey -n 1000 -c 10 http://<minikube_ip>:3000
 
