@@ -1,40 +1,28 @@
-# Node.js Application Deployment on Kubernetes
+# Project Name: Kubernetes Deployment and Monitoring with PostgreSQL #
 
-This repository contains the codebase and deployment configurations for a Node.js application deployed on a local Kubernetes cluster. The deployment includes horizontal pod autoscaling (HPA), resource limits, stress testing, monitoring, and documentation.
+Overview and Description:
 
-## Getting Started
+Start with a brief overview of your project and its purpose.
+Describe the technologies used (e.g., Node.js, PostgreSQL, Kubernetes, Grafana, Prometheus) and their roles in the project.
 
-### Prerequisites
+# Prerequisites:
 
-- Docker
-- Minikube
-- kubectl
-- Hey (or any other load testing tool)
+List the prerequisites needed to run the deployment locally, such as:
+Docker installed and configured
+Kubernetes cluster (e.g., Minikube) running locally
+Helm installed for managing Kubernetes resources (if applicable)
+Access to Docker Hub or a private Docker registry (if pushing Docker images)
 
-### Installation
+# Project Structure:
+Describe the structure of your project directory, highlighting key files and directories relevant to deployment and configuration (e.g., Dockerfile, Kubernetes YAML files, Helm charts).
 
-1. Clone the repository:
-   git clone <repository_url>
-   cd nodejs-kubernetes-deployment
-   
-## Build and push the Docker image to Minikube's Docker daemon: ##
-
-docker build -t my-node-app .
-docker tag my-node-app:latest minikube/my-node-app:latest
-docker push minikube/my-node-app:latest
-
-## Apply the Kubernetes deployment manifest ##
-
-kubectl apply -f deployment.yaml
-
-## Enable metrics server and configure HPA ##
-
-minikube addons enable metrics-server
-kubectl apply -f hpa.yaml
-
- ## Perform stress testing using Hey or similar tool ##
-
- https://github.com/rakyll/hey
-
- hey -n 1000 -c 10 http://<minikube_ip>:3000
-
+# Deployment Instructions:
+Provide step-by-step instructions for running the deployment locally:
+Clone the repository to your local machine using git clone <repository_url>.
+Navigate to the project directory: cd <project_directory>.
+Build the Docker image for your Node.js application:
+docker build -t <image_name> .
+Run the Docker container locally:
+docker run -p 3000:3000 <image_name>
+Verify that your Node.js application is running by accessing http://localhost:3000 in your web browser.
+If applicable, provide additional instructions for setting up PostgreSQL locally, deploying Prometheus and Grafana locally, and accessing monitoring dashboards.
