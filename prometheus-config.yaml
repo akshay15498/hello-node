@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+    scrape_configs:
+      - job_name: 'nodejs-app'
+        static_configs:
+          - targets: ['nodejs-app-service:3000']  # Replace with your Node.js app service
+      - job_name: 'postgresql'
+        static_configs:
+          - targets: ['postgresql-service:5432']  # Replace with your PostgreSQL service
+
